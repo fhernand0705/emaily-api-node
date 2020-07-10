@@ -16,20 +16,21 @@ passport.use(
     new GoogleStrategy({
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: 'http://localhost:5000/auth/google/callback',
+        callbackURL: '/auth/google/callback'
     }, 
-     async (accessToken, refreshToken, profile, done) => {
-        const existingUser = await User.findById({ googleId: profile.id });
-
-        if (existingUser) {
-            done(null, existingUser);
-        } else {
-            // creates model instance using google data
-            const newUser = await new User({
-                googleId: profile.id,
-                name: profile.displayName 
-            }).save() // saves record to mongoDB
-            done(null, newUser);
-        }   
+    (accessToken, refreshToken, profile, done) => {
+        User.findOne({ googleId: profile.id })
+            .then(existingUser => {
+                if (existingUser) {
+                    done(null, existingUser);
+                } else {
+                    new User({
+                        googleId: profile.id,
+                        name: profile.displayName 
+                    })
+                    .save()
+                    .then(newUser => done(null, newUser))
+                }
+            })   
   })
 );
