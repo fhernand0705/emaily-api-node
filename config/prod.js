@@ -5,4 +5,3 @@ module.exports = {
     cookieKey: process.env.COOKIE_KEY
 }
 
-// mongodb+srv://fred_0705_prod:rsN68tgsil9vAHKc@cluster0.ggbbn.mongodb.net/emaily-prod?retryWrites=true&w=majority
