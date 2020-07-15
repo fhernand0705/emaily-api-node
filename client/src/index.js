@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import 'materialize-css/dist/css/materialize.min.css';
 import { Provider } from 'react-redux'; 
 import { createStore, applyMiddleware } from 'redux'; 
 
@@ -12,7 +14,11 @@ const store = createStore(reducers, {}, applyMiddleware());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}><App /></Provider> 
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider> 
   </React.StrictMode>,
   document.getElementById('root')
 );
