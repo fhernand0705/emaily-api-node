@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as actions from '../actions';
 
 const Landing = () => <div><h2>Landing</h2></div>
