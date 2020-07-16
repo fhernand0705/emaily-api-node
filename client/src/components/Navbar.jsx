@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
 
 function Navbar() {
@@ -7,13 +8,14 @@ function Navbar() {
     return (
         <nav>
             <div className="nav-wrapper">
-                <a href="/" className="left brand-logo">
+                <Link to="/" className="left brand-logo">
                     Emaily
-                </a>    
+                </Link>    
                 <ul className="right">
                     {currentUser && 
                         <div>
                             <li><span>{currentUser.name}</span></li>
+                            <li><Link to='/surveys'>Surveys</Link></li>
                             <li><a href="/api/logout"><span>Logout</span></a></li> 
                         </div>
                     }
