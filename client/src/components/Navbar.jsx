@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
+import Payments from './Payments';
 
 function Navbar() {
     const currentUser = useSelector(state => state.auth);
@@ -15,8 +16,9 @@ function Navbar() {
                     {currentUser && 
                         <div>
                             <li><span>{currentUser.name}</span></li>
+                            <li key="1"><Payments /></li>
                             <li><Link to='/surveys'>Surveys</Link></li>
-                            <li><a href="/api/logout"><span>Logout</span></a></li> 
+                            <li key="2"><a href="/api/logout"><span>Logout</span></a></li> 
                         </div>
                     }
                     {!currentUser && 
