@@ -17,6 +17,7 @@ function Navbar() {
                         <div>
                             <li><span>{currentUser.name}</span></li>
                             <li key="1"><Payments /></li>
+                    <li key="3">Credits: {currentUser.credits}</li>
                             <li><Link to='/surveys'>Surveys</Link></li>
                             <li key="2"><a href="/api/logout"><span>Logout</span></a></li> 
                         </div>
