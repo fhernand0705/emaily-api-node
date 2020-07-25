@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Navbar from './Navbar';
@@ -21,11 +21,11 @@ function App() {
     return (
         <React.Fragment>
             <Navbar />
-            <Switch>
+            <div className="container">
                 <Route exact path="/"  component={Home} />
                 <Route exact path="/surveys" component={Dashboard} />
                 <Route path="/surveys/new" component={SurveyNew}/>
-            </Switch>
+            </div>
         </React.Fragment>
     )
 }
