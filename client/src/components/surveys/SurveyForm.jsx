@@ -36,6 +36,19 @@ function SurveyForm(props) {
     )
 }
 
+function validate(values) {
+    const errors = {};
+
+    FIELDS.forEach(({ name }) => {
+        if (!values[name]) {
+            errors[name] = `A value is required`
+        }
+    });
+
+    return errors; 
+}
+
 export default reduxForm({
+    validate,
     form: 'surveyForm'
 })(SurveyForm);
