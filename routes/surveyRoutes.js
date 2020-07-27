@@ -33,7 +33,6 @@ module.exports = app => {
             const user = await req.user.save(); 
         
             res.send(user);
-            res.redirect('/surveys')
         } catch (error) {
             res.status(422).send(err);
         }
