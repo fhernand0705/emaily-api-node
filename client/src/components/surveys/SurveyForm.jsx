@@ -11,8 +11,9 @@ const FIELDS = [
     { label: 'Recipient List', name: 'emails' },
 ];
 
-function SurveyForm(props) {
-    const { handleSubmit } = props; 
+const SurveyForm = (props) => {
+
+    const { handleSubmit, onSurveySubmit } = props; 
 
     const renderFields = () => {
         return FIELDS.map(({label, name}) => {
@@ -24,13 +25,14 @@ function SurveyForm(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit(values => console.log(values))}>
+            <form onSubmit={handleSubmit(onSurveySubmit)}>
                 {renderFields()}
 
                 <Link to="/surveys" className="btn waves-effect waves-light left red">Cancel</Link>
                 
-                <button type="submit" className="btn waves-effect waves-light right">Next
-                <i class="material-icons right">done</i>
+                <button type="submit" className="btn waves-effect waves-light right">
+                    Next
+                <i className="material-icons right">done</i>
                 </button>
             </form>
         </div>
