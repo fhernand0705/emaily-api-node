@@ -1,9 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'; 
 import formFields from './formFields'; 
 import * as actions from '../../actions/index';
 
-function SurveyReview({ onCancel }) {
+function SurveyFormReview({ onCancel, history }) {
     const formValues = useSelector(state => state.form.surveyForm.values);
     const dispatch = useDispatch(); 
 
@@ -25,7 +26,7 @@ function SurveyReview({ onCancel }) {
                 Back
             </button>
             <button 
-                onClick={() => dispatch(actions.submitSurvey(formValues))}
+                onClick={() => dispatch(actions.submitSurvey(formValues, history))}
                 className="green white-text btn-flat right">
                 Send Survey
                 <i className="material-icons right">email</i>
@@ -34,4 +35,4 @@ function SurveyReview({ onCancel }) {
     );
 };
 
-export default SurveyReview; 
+export default withRouter(SurveyFormReview); 
