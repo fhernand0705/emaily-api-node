@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { reduxForm } from 'redux-form';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 
@@ -7,11 +8,13 @@ function SurveyNew() {
 
     return (
         <div>
-            {!showFormReview ? <SurveyForm 
-            onSurveySubmit={() => setShowFormReview(true)}/> 
-            : <SurveyFormReview />}
+            {!showFormReview ? 
+            <SurveyForm onSurveySubmit={() => setShowFormReview(true)}/> 
+            : <SurveyFormReview onCancel={() => setShowFormReview(false)}/>}
         </div>
     )
 }
 
-export default SurveyNew;
+export default reduxForm({
+    form: 'surveyForm'
+})(SurveyNew);

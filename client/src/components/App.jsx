@@ -17,7 +17,6 @@ function App() {
         dispatch(actions.fetchUser());
     })
     
-
     return (
         <React.Fragment>
             <Navbar />
