@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SurveysList from './surveys/SurveysList';
 
 function Dashboard() {
     return (
         <React.Fragment>
-            <div><h3>Dashboard</h3></div>
+            <SurveysList />
             <div className="fixed-action-btn">
                 <Link to="/surveys/new" className="btn-floating btn-large red">
                     <i className="material-icons">add</i>

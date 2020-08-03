@@ -10,24 +10,47 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
-    app.get('/api/surveys/message', (req, res) => {
+    app.get('/api/surveys', requireLogin, async (req, res) => {
+        const surveys = await Survey.find({ _user: req.user.id })
+            .select({ recipients: false })
+            .sort({ dateSent: -1, lastResponded: -1 });
+
+        res.send(surveys);
+    })
+
+    app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for your feedback!');
     })
 
     app.post('/api/surveys/webhooks', (req, res) => {
         const pathExtractor = new Path('/api/surveys/:surveyId/:choice'); 
         
-        const events = _.map(req.body, ({url, email}) => {
-            const match = pathExtractor.test(new URL(url).pathname);
+        _.chain(req.body)
+            .map(({url, email}) => {
+                const match = pathExtractor.test(new URL(url).pathname);
             
-            if (match) {
-                return { email, ...match }
-            }
-        }).filter(event => event !== 'undefined'); 
-
-        const uniqueEvents = _.uniqBy(events, 'email', 'surveyId'); 
-        console.log(uniqueEvents) 
-
+                if (match) return { email, ...match }; 
+            
+            })
+            .compact()
+            .uniqBy('email', 'surveyId')
+            .each(({ surveyId, email, choice}) => {
+                Survey.updateOne(
+                    {
+                        _id: surveyId,
+                        recipients: {
+                            $elemMatch: { email: email, responded: false }
+                        }
+                    },     
+                    {
+                        $inc: { [choice]: 1},
+                        $set: { 'recipients.$.responded': true},
+                        lastResponded: new Date()
+                    }
+                ).exec();
+            })
+            .value();
+        
         res.send({});
     })
     
