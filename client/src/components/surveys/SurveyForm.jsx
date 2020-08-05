@@ -45,7 +45,6 @@ function validate(values) {
         }
     });
 
-
     return errors; 
 }
 

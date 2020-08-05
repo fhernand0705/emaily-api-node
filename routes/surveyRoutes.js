@@ -9,8 +9,20 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys');
 
+
+
 module.exports = app => {
     app.get('/api/surveys', requireLogin, async (req, res) => {
+        const surveys = await Survey.find({ _user: req.user.id })
+            .select({ recipients: false })
+            .sort({ dateSent: -1, lastResponded: -1 });
+    
+        res.send(surveys);
+    })
+
+    app.delete('/api/surveys/:surveyId', requireLogin, async (req, res) => {
+        await Survey.findByIdAndDelete({ _id: req.params.surveyId });
+
         const surveys = await Survey.find({ _user: req.user.id })
             .select({ recipients: false })
             .sort({ dateSent: -1, lastResponded: -1 });
@@ -82,4 +94,4 @@ module.exports = app => {
     });
 }
 
-// http://e30c0f988fac.ngrok.io
+
