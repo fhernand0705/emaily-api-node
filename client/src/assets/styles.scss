@@ -1,0 +1,57 @@
+body {
+    background-color: #16161a; 
+}
+
+// NAVBAR SECTION
+nav {
+    background-color: #16161a; //#353536
+    padding: 1em;
+    margin: 0 0 5em;      
+}
+
+.nav-item {
+    position: relative;
+    padding: .5em;
+}
+
+.badge {
+    position: relative;
+    background-color: #7f5af0 !important;  
+    top: 2em;
+}
+
+// SURVEY CARD SECTION
+.card {
+    background-color: #353536;
+        a { 
+            color: #f25f4c !important; 
+            margin: 0 1em;
+        }
+}
+
+.card-action {
+    display: flex;
+    flex-direction: row;
+}
+
+.yes-no-res {
+    flex: 1;
+}
+
+.date-text {
+    color: #94a1b2;
+    flex: .2;
+}
+
+
+// GLOBAL BUTTONS
+.btn {
+    background-color: #72757e; 
+}
+
+.btn-large { background-color: #7f5af0 }
+.btn-large:hover { background-color: #2cb67d; }
+
+.logout-btn:hover, .btn:hover {
+    background-color: #7f5af0;
+}

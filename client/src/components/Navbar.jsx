@@ -4,22 +4,38 @@ import { useSelector } from 'react-redux';
 import Payments from './Payments';
 
 function Navbar() {
-    const currentUser = useSelector(state => state.auth);
+    const currentUser = useSelector(({ auth }) => auth);
     
     return (
         <nav>
             <div className="nav-wrapper">
                 <Link to="/" className="left brand-logo">
-                    Emaily
-                </Link>    
+                    <span>Emaily</span>
+                    <i className="material-icons">send</i>       
+                </Link> 
                 <ul className="right">
                     {currentUser && 
                         <div>
-                            <li><span>{currentUser.name}</span></li>
-                            <li key="1"><Payments /></li>
-                    <li key="3">Credits: {currentUser.credits}</li>
-                            <li><Link to='/surveys'>Surveys</Link></li>
-                            <li key="2"><a href="/api/logout"><span>Logout</span></a></li> 
+                            <li className="nav-item">
+                                {currentUser.name}
+                                <span 
+                                    className="new badge" 
+                                    data-badge-caption="">
+                                    Credits: {currentUser.credits}
+                                </span>
+                            </li>
+                            <li className="nav-item">
+                                <Link to='/surveys'>Surveys</Link>
+                            </li>
+                            <li key="1" className="nav-item">
+                                <Payments />
+                            </li>
+                            
+                            <li key="2" className="nav-item">
+                                <a href="/api/logout" className="btn logout-btn">
+                                    Logout
+                                </a>
+                            </li> 
                         </div>
                     }
                     {!currentUser && 

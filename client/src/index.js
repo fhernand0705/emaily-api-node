@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css/dist/css/materialize.min.css';
+import './assets/styles.scss'; 
 import { Provider } from 'react-redux'; 
 import { createStore, applyMiddleware } from 'redux'; 
 import reduxThunk from 'redux-thunk';

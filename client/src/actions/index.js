@@ -6,6 +6,7 @@ import { FETCH_SURVEYS } from './types';
 // ACTION CREATORS WITH REDUX-THUNK
 export const fetchUser = () => async dispatch => {
     const getUser = await axios.get('/api/current_user');
+    
     dispatch({ type: FETCH_USER, payload: getUser.data });
 }
 

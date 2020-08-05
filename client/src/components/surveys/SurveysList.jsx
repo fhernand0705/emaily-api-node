@@ -15,28 +15,26 @@ function SurveysList() {
     const renderSurveys = () => {
         return surveys.map(({ title, subject, yes, no, dateSent, _id }) => {
             return (
-                <div key={_id} className="row">
-                    <div className="col m6">
-                        <div className="card blue-grey darken-1">
+                // <div key={_id} className="row">
+                    <div key={_id} className="col m6">
+                        <div className="card">
                             <div className="card-content white-text">
                                 <span className="card-title">{title}</span>
                                 <p>{subject}</p>
                             </div>
                             <div className="card-action">
-                                <span>Yes: {yes}</span>
-                                <span>No: {no}</span>
-                                <p className="right">
-                                    Sent on: 
-                                    {new Date(dateSent).toLocaleDateString()}
-                                </p> 
-                                <button 
-                                    onClick={() => dispatch(deleteSurvey(_id))} className="left">
-                                    Delete
-                                </button>
+                                <span className="yes-no-res white-text">Yes: {yes} No: {no}</span>
+                                <span className="date-text">
+                                    Sent On: {new Date(dateSent).toLocaleDateString()}
+                                </span> 
+                                <a href=""
+                                   onClick={() => dispatch(deleteSurvey(_id))}   className="delete-icon">
+                                   <i className="material-icons">delete_forever</i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
+                // </div>
             ) 
         })
     }
