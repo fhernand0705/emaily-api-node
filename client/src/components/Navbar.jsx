@@ -10,7 +10,7 @@ function Navbar() {
         <nav>
             <div className="nav-wrapper">
                 <Link to="/" className="left brand-logo">
-                    <span>Emaily</span>
+                    <span>Emaily Surve</span>
                     <i className="material-icons">send</i>       
                 </Link> 
                 <ul className="right">

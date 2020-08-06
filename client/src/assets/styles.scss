@@ -4,7 +4,8 @@ body {
 
 // NAVBAR SECTION
 nav {
-    background-color: #16161a; //#353536
+    background-color: #16161a;
+    box-shadow: unset;
     padding: 1em;
     margin: 0 0 5em;      
 }
@@ -19,6 +20,17 @@ nav {
     background-color: #7f5af0 !important;  
     top: 2em;
 }
+
+// HOME SECTION
+.emaily-intro { margin: 0 0 10em; }
+.card-process {
+    background-color: #7f5af0 !important;
+    border-radius: 1em;
+    span, p {
+        color: whitesmoke;
+    }
+}
+hr { margin: 3em 18em 3em; }
 
 // SURVEY CARD SECTION
 .card {
