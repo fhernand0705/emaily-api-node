@@ -21,6 +21,10 @@ nav {
     top: 2em;
 }
 
+.badge-demo {
+    background-color: #2cb67d !important;
+}
+
 // HOME SECTION
 .emaily-intro { margin: 0 0 10em; }
 .card-process {
@@ -63,6 +67,6 @@ hr { margin: 3em 18em 3em; }
 .btn-large { background-color: #7f5af0 }
 .btn-large:hover { background-color: #2cb67d; }
 
-.logout-btn:hover, .btn:hover {
+.logout-btn:hover, .login-btn:hover, .btn:hover {
     background-color: #7f5af0;
 }

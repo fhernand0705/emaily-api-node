@@ -10,7 +10,14 @@ function Navbar() {
         <nav>
             <div className="nav-wrapper">
                 <Link to="/" className="left brand-logo">
-                    <span>Emaily Surve</span>
+                    <span>
+                        Emaily Surve
+                        <span 
+                            className="new badge badge-demo" 
+                            data-badge-caption="">
+                            Demo
+                        </span>
+                    </span>
                     <i className="material-icons">send</i>       
                 </Link> 
                 <ul className="right">
@@ -40,7 +47,9 @@ function Navbar() {
                     }
                     {!currentUser && 
                         <li>
-                            <a href="/auth/google">Login with Google</a>
+                            <a href="/auth/google" className="btn login-btn">
+                                Login with Google
+                            </a>
                         </li>
                     }
                 </ul>
