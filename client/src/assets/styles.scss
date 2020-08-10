@@ -10,6 +10,32 @@ nav {
     margin: 0 0 5em;      
 }
 
+.navbar-right {
+    @media (max-width: 988px) { display: none; }
+}
+.sidenav { display: none; }
+
+@media (max-width: 988px) {
+    .sidenav {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        background-color: #353536;
+        .divider { width: 5em; }
+        li { 
+            line-height: 58px; 
+            padding: .5em; 
+        }
+    }
+    
+    .sidenav-logo {
+        span { 
+            font-size: 1.5em; 
+        }
+    }
+}
+
+
 .nav-item {
     position: relative;
     padding: .5em;
@@ -19,6 +45,9 @@ nav {
     position: relative;
     background-color: #7f5af0 !important;  
     top: 2em;
+    @media (max-width: 988px) {
+        top: .5em;
+    }
 }
 
 .badge-demo {
@@ -65,8 +94,14 @@ hr { margin: 3em 18em 3em; }
 }
 
 .btn-large { background-color: #7f5af0 }
+.logout-btn {
+    @media (max-width: 988px) {
+        height: 2.35em !important;
+        line-height: 33px !important;
+    }
+}
 .btn-large:hover { background-color: #2cb67d; }
 
 .logout-btn:hover, .login-btn:hover, .btn:hover {
-    background-color: #7f5af0;
+    background-color: #7f5af0 !important;
 }

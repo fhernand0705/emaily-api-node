@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import Navbar from './Navbar';
+import Nav from './Navbar';
 import Home from './Home';
 import SurveyNew from './surveys/SurveyNew';
 import Dashboard from './Dashboard';
@@ -19,7 +19,7 @@ function App() {
     
     return (
         <React.Fragment>
-            <Navbar />
+            <Nav />
             <div className="container">
                 <Route exact path="/"  component={Home} />
                 <Route exact path="/surveys" component={Dashboard} />

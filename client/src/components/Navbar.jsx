@@ -1,31 +1,64 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
 import Payments from './Payments';
+import M from 'materialize-css';
 
-function Navbar() {
+function Nav() {
     const currentUser = useSelector(({ auth }) => auth);
+
+    useEffect(() => {
+        M.AutoInit()
+    })
     
     return (
-        <nav>
+          <nav>
             <div className="nav-wrapper">
-                <Link to="/" className="left brand-logo">
-                    <span>
-                        Emaily Surve
-                        <span 
-                            className="new badge badge-demo" 
-                            data-badge-caption="">
-                            Demo
-                        </span>
-                    </span>
-                    <i className="material-icons">send</i>       
-                </Link> 
+                    <Link to="/" className="left brand-logo">
+                        <span>Emaily Surve</span>
+                        <i className="material-icons">send</i>       
+                    </Link>
                 <ul className="right">
                     {currentUser && 
                         <div>
+                            <ul id="slide-out" className="sidenav">
+                                <li>
+                                <Link to="/" className="sidenav-logo">
+                                    <span className="blue-text">Emaily Surve</span>
+                                    <i className="material-icons blue-text">send</i>       
+                                </Link>
+                                </li>
+                                <li>
+                                    {currentUser.name}
+                                    <span 
+                                        className="new badge" 
+                                        data-badge-caption="">
+                                        Credits: {currentUser.credits}
+                                    </span>
+                                </li>
+                                <li>
+                                    <Link to='/surveys' className="white-text">
+                                        Surveys
+                                    </Link>
+                                </li>
+                                <li><Payments /></li>
+                                <li><div className="divider"></div></li>
+                                <li>
+                                    <a href="/api/logout" className="btn logout-btn">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                            <a 
+                                href="#" 
+                                data-target="slide-out" 
+                                class="sidenav-trigger">
+                                <i class="material-icons">menu</i>
+                            </a>   
+                            <div className="navbar-right">  
                             <li className="nav-item">
                                 {currentUser.name}
-                                <span 
+                               <span 
                                     className="new badge" 
                                     data-badge-caption="">
                                     Credits: {currentUser.credits}
@@ -43,19 +76,29 @@ function Navbar() {
                                     Logout
                                 </a>
                             </li> 
-                        </div>
+                            </div> 
+                        </div> 
                     }
                     {!currentUser && 
-                        <li>
-                            <a href="/auth/google" className="btn login-btn">
-                                Login with Google
-                            </a>
-                        </li>
+                        <div>
+                            <ul id="slide-out" className="sidenav">
+                                <li>
+                                    <a href="/auth/google" className="btn login-btn">
+                                        Login with Google
+                                    </a>
+                                </li>
+                            </ul>
+                            <li>
+                                <a href="/auth/google" className="btn login-btn">
+                                    Login with Google
+                                </a>
+                            </li>
+                        </div>
                     }
                 </ul>
-            </div>
-        </nav>
+            </div> 
+         </nav> 
     )
 }
 
-export default Navbar;
+export default Nav;
