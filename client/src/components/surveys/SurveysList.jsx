@@ -54,9 +54,9 @@ function SurveysList() {
     return (
         <div>
             {currentUser && 
-                <h3 className="white-text center">
+                <h4 className="white-text center">
                     {`${renderFirstName()}'s Surveys`}
-                </h3>
+                </h4>
             }
             {renderSurveys()}
         </div>

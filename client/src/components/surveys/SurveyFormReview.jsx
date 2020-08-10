@@ -13,7 +13,7 @@ function SurveyFormReview({ onCancel, history }) {
          return (
             <div key={name}>
                 <label>{label}</label>
-                <div>{formValues[name]}</div>
+                <div className="white-text">{formValues[name]}</div>
             </div>
          )   
       })
@@ -21,8 +21,9 @@ function SurveyFormReview({ onCancel, history }) {
     
     return (
         <div>
+            <h4 className="white-text survey-header">Review Survey</h4>
             {renderFormData()}
-            <button onClick={onCancel} className="yellow white-text darken-3 btn-flat" >
+            <button onClick={onCancel} className="red white-text darken-3 btn-flat" >
                 Back
             </button>
             <button 

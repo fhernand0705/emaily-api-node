@@ -18,6 +18,7 @@ const SurveyForm = (props) => {
 
     return (
         <div>
+            <h4 className="white-text survey-header">Compose Survey</h4>
             <form onSubmit={handleSubmit(onSurveySubmit)}>
                 {renderFields()}
 

@@ -5,11 +5,11 @@ function Home() {
     const renderCards = () => {
         return cardContent.map(({title, body}) => {
             return (
-                <div class="row center">
-                    <div class="col m12">
-                        <div class="card card-process">
-                            <div class="card-content white-text">
-                                <span class="card-title">{title}</span>
+                <div className="row center" key={title}>
+                    <div className="col m12">
+                        <div className="card card-process">
+                            <div className="card-content white-text">
+                                <span className="card-title">{title}</span>
                                 <p>{body}</p>
                             </div>
                         </div>

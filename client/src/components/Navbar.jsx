@@ -23,11 +23,12 @@ function Nav() {
                         <div>
                             <ul id="slide-out" className="sidenav">
                                 <li>
-                                <Link to="/" className="sidenav-logo">
-                                    <span className="blue-text">Emaily Surve</span>
-                                    <i className="material-icons blue-text">send</i>       
-                                </Link>
+                                    <Link to="/" className="sidenav-logo">
+                                        <span className="blue-text">Emaily Surve</span>
+                                        <i className="material-icons blue-text">send</i>       
+                                    </Link>
                                 </li>
+                                <li><div className="divider"></div></li>
                                 <li>
                                     {currentUser.name}
                                     <span 
@@ -42,7 +43,7 @@ function Nav() {
                                     </Link>
                                 </li>
                                 <li><Payments /></li>
-                                <li><div className="divider"></div></li>
+                                
                                 <li>
                                     <a href="/api/logout" className="btn logout-btn">
                                         Logout
@@ -52,8 +53,8 @@ function Nav() {
                             <a 
                                 href="#" 
                                 data-target="slide-out" 
-                                class="sidenav-trigger">
-                                <i class="material-icons">menu</i>
+                                className="sidenav-trigger">
+                                <i className="material-icons">menu</i>
                             </a>   
                             <div className="navbar-right">  
                             <li className="nav-item">

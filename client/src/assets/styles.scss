@@ -21,11 +21,12 @@ nav {
         flex-direction: column;
         align-items: center;
         background-color: #353536;
-        .divider { width: 5em; }
-        li { 
-            line-height: 58px; 
-            padding: .5em; 
+        .divider { 
+            width: 11em; 
+            margin: .5em 0 2.5em !important; 
         }
+        li { line-height: 58px; }
+        i { margin: 0 .5em 0 0 !important; }
     }
     
     .sidenav-logo {
@@ -34,7 +35,6 @@ nav {
         }
     }
 }
-
 
 .nav-item {
     position: relative;
@@ -63,9 +63,12 @@ nav {
         color: whitesmoke;
     }
 }
-hr { margin: 3em 18em 3em; }
+hr { 
+    margin: 2.5em auto; 
+    width: 25%; 
+}
 
-// SURVEY CARD SECTION
+// SURVEY LIST SECTION
 .card {
     background-color: #353536;
         a { 
@@ -87,6 +90,10 @@ hr { margin: 3em 18em 3em; }
     color: #94a1b2;
     flex: .2;
 }
+
+// SURVEY COMPOSITION SECTION
+.survey-header { margin: 0 0 1em; }
+.btn-flat { margin: 2em 0; }
 
 // GLOBAL BUTTONS
 .btn {
