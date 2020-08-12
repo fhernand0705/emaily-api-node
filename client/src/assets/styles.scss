@@ -1,10 +1,16 @@
+$primary-black: #16161a; 
+$primary-blue: #7f5af0;
+$primary-green: #2cb67d;
+
+$sec-black: #353536;
+
 body {
-    background-color: #16161a; 
+    background-color: $primary-black; 
 }
 
 // NAVBAR SECTION
 nav {
-    background-color: #16161a;
+    background-color: $primary-black;
     box-shadow: unset;
     padding: 1em;
     margin: 0 0 5em;      
@@ -20,7 +26,7 @@ nav {
         display: flex; 
         flex-direction: column;
         align-items: center;
-        background-color: #353536;
+        background-color: $sec-black;
         .divider { 
             width: 11em; 
             margin: .5em 0 2.5em !important; 
@@ -43,7 +49,7 @@ nav {
 
 .badge {
     position: relative;
-    background-color: #7f5af0 !important;  
+    background-color: $primary-blue !important;  
     top: 2em;
     @media (max-width: 988px) {
         top: .5em;
@@ -51,14 +57,12 @@ nav {
 }
 
 .badge-demo {
-    background-color: #2cb67d !important;
+    background-color: $primary-green !important;
 }
 
 // HOME SECTION
 .emaily-intro { margin: 0 0 10em; }
 .card-process {
-    background-color: #7f5af0 !important;
-    border-radius: 1em;
     span, p {
         color: whitesmoke;
     }
@@ -70,7 +74,11 @@ hr {
 
 // SURVEY LIST SECTION
 .card {
-    background-color: #353536;
+    background-color: $sec-black;
+    border-radius: 1em !important;
+    border-left-width: .5em !important;
+    border-left-style: solid !important;
+    border-left-color: $primary-blue;
         a { 
             color: #f25f4c !important; 
             margin: 0 1em;
@@ -80,6 +88,9 @@ hr {
 .card-action {
     display: flex;
     flex-direction: row;
+    border-left-width: 1px !important;
+    border-left-style: solid !important;
+    border-left-color: $primary-blue !important;
 }
 
 .yes-no-res {
@@ -100,15 +111,15 @@ hr {
     background-color: #72757e; 
 }
 
-.btn-large { background-color: #7f5af0 }
+.btn-large { background-color: $primary-blue; }
 .logout-btn {
     @media (max-width: 988px) {
         height: 2.35em !important;
         line-height: 33px !important;
     }
 }
-.btn-large:hover { background-color: #2cb67d; }
+.btn-large:hover { background-color: $primary-green; }
 
 .logout-btn:hover, .login-btn:hover, .btn:hover {
-    background-color: #7f5af0 !important;
+    background-color: $primary-blue !important;
 }
