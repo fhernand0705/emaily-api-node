@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 import Payments from './Payments';
 import M from 'materialize-css';
+import emaily_logo_black from '../assets/emaily-logo-black.png'; 
+import emaily_logo_blue from '../assets/emaily-logo-blue.png';
 
 function Nav() {
     const currentUser = useSelector(({ auth }) => auth);
+    const renderLogo = (logo) => {
+        return (
+            <img src={logo} 
+                 className="emaily-logo" 
+                 alt="emaily_logo"/>
+        )
+    }
 
     useEffect(() => {
         M.AutoInit()
@@ -15,8 +24,8 @@ function Nav() {
           <nav>
             <div className="nav-wrapper">
                     <Link to="/" className="left brand-logo">
+                        {renderLogo(emaily_logo_black)}
                         <span>Emaily Surve</span>
-                        <i className="material-icons">send</i>       
                     </Link>
                 <ul className="right">
                     {currentUser && 
@@ -24,8 +33,8 @@ function Nav() {
                             <ul id="slide-out" className="sidenav">
                                 <li>
                                     <Link to="/" className="sidenav-logo">
+                                        {renderLogo(emaily_logo_blue)}      
                                         <span className="blue-text">Emaily Surve</span>
-                                        <i className="material-icons blue-text">send</i>       
                                     </Link>
                                 </li>
                                 <li><div className="divider"></div></li>

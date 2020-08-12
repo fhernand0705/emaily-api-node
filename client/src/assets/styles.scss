@@ -19,6 +19,18 @@ nav {
 .navbar-right {
     @media (max-width: 988px) { display: none; }
 }
+
+.brand-logo {
+    span {
+        position: relative;
+        top: -5px;
+    }
+}
+.emaily-logo {
+    width: 2em;
+    margin: 0 .5em;
+}
+
 .sidenav { display: none; }
 
 @media (max-width: 988px) {
@@ -29,7 +41,7 @@ nav {
         background-color: $sec-black;
         transition: all .3s ease-in-out;
         .divider { 
-            width: 11em; 
+            width: 5em; 
             margin: .5em 0 2.5em !important; 
         }
         li { line-height: 58px; }

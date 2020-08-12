@@ -25,7 +25,7 @@ function Home() {
             <div className="emaily-intro">
                 <h2 className="white-text">Welcome to Emaily Surve!</h2>
                 <p className="grey-text">
-                    Receiving feedback from customers is an important aspect of growing your business, and Emaily makes it so that the process as easy as possible for our users. Begin collecting valuable feedback from your users today!
+                    Receiving feedback from customers is an important aspect of growing your business, and Emaily makes it so that the process is as easy as possible for our users. Begin collecting valuable feedback from your users today! <b>Login with Google to start.</b>
                 </p>
             </div>
             <div className="container">
